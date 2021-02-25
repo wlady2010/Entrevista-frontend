@@ -1,0 +1,42 @@
+<mat-toolbar>Registro de Órden</mat-toolbar>
+
+<div class="example-container">
+    <mat-form-field class="example-full-width">
+        <mat-select placeholder="Cliente" [(value)]="idClienteSeleccionado">
+            <mat-option *ngFor="let p of clientes" [value]="p.idCliente">
+                {{p.nombres}} {{p.apellidos}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Escoge una fecha" [(ngModel)]="fechaSeleccionada">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br/> Seleccione el artículo
+
+    <mat-form-field>
+        <mat-select placeholder="Artículo" [(value)]="idArticuloSeleccionado">
+            <mat-option *ngFor="let art of articulos" [value]="art.idArticulo">
+                {{ art.nombre }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="agregarArticulo()">Agregar Artículo</button>
+    <br/>
+    <mat-toolbar *ngFor="let d of articulosSeleccionados; let i=index">
+        Nombre Articulo: {{d.nombre}}
+        <div style="margin: 25%;">
+            <mat-form-field class="example-full-width">
+                <mat-label>Unidades</mat-label>
+                <input matInput [(ngModel)]="d.cantidad">
+            </mat-form-field>
+        </div>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="warn" (click)="removerArticulo(i)">Remover</button>
+    </mat-toolbar>
+    <br/>
+    <button mat-raised-button color="primary" (click)="aceptar()" [disabled]="estadoBotonRegistrar()">Registrar</button>
+</div>

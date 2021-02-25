@@ -1,0 +1,35 @@
+<mat-card>Ingrese los datos del artículo</mat-card>
+
+<form class="example-container" [formGroup]="form" (ngSubmit)="registrar()" #frmArticulo="ngForm">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre" minlength="2" required formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Cod" required formControlName="codigo">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Valor Unitario" required formControlName="valorUnitario">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Stock" required formControlName="stock">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmArticulo.invalid">
+      <mat-icon>done</mat-icon>
+      <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/articulo' type="button">
+      <mat-icon>close</mat-icon>
+      <span>Cancelar</span>
+    </button>
+</form>

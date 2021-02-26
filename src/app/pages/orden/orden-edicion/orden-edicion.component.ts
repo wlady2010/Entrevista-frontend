@@ -68,29 +68,13 @@ export class OrdenEdicionComponent implements OnInit {
           articulo.nombre = data.nombre;
           articulo.codigo = data.codigo;
           articulo.valorUnitario = data.valorUnitario;
-          articulo.cantidad = 0;
-          articulo.stock = data.stock;
-          if (data.stock > 0) {
-            this.articulosSeleccionados.push(articulo);
-          } else {
-            this.mensaje = 'No se puede agregar el articulo stock en 0';
-            this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
-          }
+
         });
       }
     } else {
       this.mensaje = 'Debe agregar un articulo';
       this.snackBar.open(this.mensaje, "Aviso", { duration: 2000 });
     }
-  }
-
-  diferenciaStock(articulo: Articulo){
-    this.articulosSeleccionados.forEach((art) => {
-      if (art.idArticulo == articulo.idArticulo) {
-        art.cantidad = articulo.cantidad;
-      }
-    });
-
   }
 
   removerArticulo(index: number) {
@@ -102,25 +86,16 @@ export class OrdenEdicionComponent implements OnInit {
   aceptar(){
     let cliente = new Cliente();
     cliente.idCliente = this.idClienteSeleccionado;
-    let tieneStock = true;
     let orden = new Orden();
     orden.cliente = cliente
     orden.fecha = moment(this.fechaSeleccionada).toISOString();
     let detalleOrden = [];
-    debugger;
     this.articulosSeleccionados.forEach(articulo => {
       let detalle = new DetalleOrden();
       detalle.articulo = articulo;
-      if (articulo.stock < articulo.cantidad) {
-        tieneStock = false;
-      } else {
-        detalle.articulo.stock = articulo.stock - articulo.cantidad;
         detalleOrden.push(detalle);
-      }
     });
-
     orden.detalleOrden = detalleOrden;
-    if (tieneStock) {
       this.ordenService.registrar(orden).subscribe(() => {
         this.snackBar.open("Se registró", "Aviso", { duration: 2000 });
         this.ordenService.listar().subscribe(data => {
@@ -130,12 +105,6 @@ export class OrdenEdicionComponent implements OnInit {
           this.limpiarControles();
         }, 1000);
       });
-    } else {
-      detalleOrden = [];
-      this.snackBar.open("El cantidad del stock de uno de los articulos es mayor a la disponible", "Aviso", { duration: 2000 });
-    }
-
-
   }
 
   limpiarControles() {
@@ -170,3 +139,4 @@ export class OrdenEdicionComponent implements OnInit {
   }
 
 }
+

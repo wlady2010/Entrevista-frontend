@@ -1,5 +1,5 @@
 <router-outlet></router-outlet>
-<mat-toolbar>Lista de Clientes</mat-toolbar>
+<mat-toolbar>Lista Clientes</mat-toolbar>
 <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="nombres">
         <th mat-header-cell *matHeaderCellDef> Nombres </th>
@@ -74,6 +74,6 @@
 
 
 
-<button mat-fab color="accent" *ngIf="!esOrden" style="float: right" routerLink='/cliente/nuevo'>
+<button mat-fab color="warn" *ngIf="!esOrden" style="float: right" routerLink='/cliente/nuevo'>
   <mat-icon>create</mat-icon>
 </button>

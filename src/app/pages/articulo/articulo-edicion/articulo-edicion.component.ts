@@ -22,8 +22,7 @@ export class ArticuloEdicionComponent implements OnInit {
       'id': new FormControl(0),
       'nombre': new FormControl(''),
       'codigo': new FormControl(''),
-      'valorUnitario': new FormControl(0),
-      'stock': new FormControl(0)
+      'valorUnitario': new FormControl(0)
     });
 
     this.route.params.subscribe((params: Params) => {
@@ -41,8 +40,7 @@ export class ArticuloEdicionComponent implements OnInit {
           'id': new FormControl(data.idArticulo),
           'nombre': new FormControl(data.nombre),
           'codigo': new FormControl(data.codigo),
-          'valorUnitario': new FormControl(data.valorUnitario),
-          'stock': new FormControl(data.stock)
+          'valorUnitario': new FormControl(data.valorUnitario)
         });
       });
     }
@@ -59,10 +57,8 @@ export class ArticuloEdicionComponent implements OnInit {
     articulo.nombre = this.form.value['nombre'];
     articulo.codigo = this.form.value['codigo'];
     articulo.valorUnitario = this.form.value['valorUnitario'];
-    articulo.stock = this.form.value['stock'];
 
     if (this.edicion) {
-      //servicio de edicion
       this.articuloService.modificar(articulo).subscribe(() => {
         this.articuloService.listar().subscribe(data => {
           this.articuloService.articuloCambio.next(data);

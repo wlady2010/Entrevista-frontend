@@ -1,4 +1,4 @@
-<mat-card>Ingrese los datos del cliente</mat-card>
+<mat-card>Ingrese el cliente</mat-card>
 
 <form class="example-container" [formGroup]="form" (ngSubmit)="registrar()" #frmCliente="ngForm">
 
@@ -16,7 +16,7 @@
         <input matInput placeholder="Apellidos" required formControlName="apellidos">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="frmCliente.invalid">
+    <button mat-raised-button color="warn" type="submit" [disabled]="frmCliente.invalid">
       <mat-icon>done</mat-icon>
       <span>Aceptar</span>
     </button>

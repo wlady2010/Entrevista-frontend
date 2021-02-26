@@ -20,10 +20,6 @@ export class OrdenComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
     });
 
-    this.ordenService.ordenCambio.subscribe(data => {
-      this.dataSource = new MatTableDataSource(data);
-    });
-
     this.ordenService.listar().subscribe(data => {
       this.dataSource = new MatTableDataSource(data);
     });

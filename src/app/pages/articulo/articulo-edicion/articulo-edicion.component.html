@@ -1,4 +1,4 @@
-<mat-card>Ingrese los datos del artículo</mat-card>
+<mat-card>Ingrese los artículo</mat-card>
 
 <form class="example-container" [formGroup]="form" (ngSubmit)="registrar()" #frmArticulo="ngForm">
 
@@ -20,11 +20,7 @@
         <input matInput placeholder="Valor Unitario" required formControlName="valorUnitario">
     </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <input matInput placeholder="Stock" required formControlName="stock">
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit" [disabled]="frmArticulo.invalid">
+    <button mat-raised-button color="warn" type="submit" [disabled]="frmArticulo.invalid">
       <mat-icon>done</mat-icon>
       <span>Aceptar</span>
     </button>

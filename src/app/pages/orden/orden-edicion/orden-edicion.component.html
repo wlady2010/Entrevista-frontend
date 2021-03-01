@@ -24,6 +24,19 @@
         </mat-select>
     </mat-form-field>
 
+    <button mat-raised-button color="warn" (click)="agregarArticulo()">Artículo</button>
+    <br/>
+    <mat-toolbar *ngFor="let d of articulosSeleccionados; let i=index">
+        Nombre Articulo: {{d.nombre}}
+        <div style="margin: 25%;">
+            <mat-form-field class="example-full-width">
+                <mat-label>Unidades</mat-label>
+                <input matInput [(ngModel)]="d.cantidad">
+            </mat-form-field>
+        </div>
+        <span class="example-spacer"></span>
+        <button mat-raised-button color="warn" (click)="removerArticulo(i)">Remover</button>
+    </mat-toolbar>
     <br/>
     <button mat-raised-button color="warn" (click)="aceptar()" [disabled]="estadoBotonRegistrar()">Registrar</button>
 </div>

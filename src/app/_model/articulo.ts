@@ -4,4 +4,6 @@ export class Articulo {
   codigo: string;
   nombre: string;
   valorUnitario: number;
+  stock: number;
+  cantidad?: number;
 }

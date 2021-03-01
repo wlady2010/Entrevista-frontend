@@ -11,7 +11,7 @@ import { ArticuloService } from 'src/app/_service/articulo.service';
 export class ArticuloComponent implements OnInit {
 
   dataSource: MatTableDataSource<Articulo>;
-  displayedColumnsArticulo: string[] = ['idArticulo', 'nombre', 'codigo', 'valorUnitario', 'acciones'];
+  displayedColumnsArticulo: string[] = ['idArticulo', 'nombre', 'codigo', 'valorUnitario', 'stock', 'acciones'];
   constructor(private articuloService: ArticuloService) { }
 
   ngOnInit(): void {

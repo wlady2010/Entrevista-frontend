@@ -1,3 +1,11 @@
+# pasos para cargar el proyecto
+
+1.- Descargar el repositorio del FrontEnd en https://github.com/wlady2010/Entrevista-frontend.
+2.- Cargar el proyecto en Visual Studio.
+3.- Abrir un terminal y escribir npm install para que se carge todas las librerias e independencia del proyecto.
+4.- Deployar el proyecto con npm start en la terminal.
+5.- Abrir en el navegador http://localhost:4200/orden cliente o articulo.
+
 # EntrevistaFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
